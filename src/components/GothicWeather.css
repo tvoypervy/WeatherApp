@@ -100,7 +100,7 @@
   background: linear-gradient(
     to var(--direction, right), 
     rgba(197, 179, 88, 0.4) 0%, 
-    rgba(197, 179, 88, 0) 100__
+    rgba(197, 179, 88, 0) 100%
   );
 }
 
