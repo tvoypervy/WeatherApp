@@ -1,0 +1,51 @@
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #030204; 
+  color: #e5e5e5;
+  font-family: "Playfair Display", serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  min-height: 100vh;
+
+  background-image: 
+    radial-gradient(
+      circle at 80% 20%,
+      rgba(138, 90, 150, 0.5) 0%,
+      transparent 45%
+    ),
+    radial-gradient(
+      circle at 20% 60%,
+      rgba(100, 110, 160, 0.45) 0%,
+      transparent 50%
+    ),
+    radial-gradient(
+        circle at 50% 40%,
+        rgba(150, 140, 160, 0.35) 0%,
+        transparent 60%
+      ),
+    radial-gradient(
+      circle at 90% 80%,
+      rgba(80, 75, 110, 0.4) 0%,
+      transparent 55%
+    ),
+    linear-gradient(135deg, #0d0a12 0%, #030205 100%);
+
+  background-blend-mode: color-dodge, color-dodge, screen, multiply, normal;
+
+  background-attachment: fixed;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: "Cinzel", serif;
+  letter-spacing: 2px;
+  color: #c5b358;
+}
