@@ -1,15 +1,14 @@
-
 .gothic-portal {
   display: flex;
   justify-content: center;
-  align-items: flex-start; 
+  align-items: flex-start;
   min-height: 100vh;
   padding: 60px 20px;
 }
 
 .gothic-portal__content {
   width: 100%;
-  max-width: 1100px; 
+  max-width: 1100px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -27,8 +26,120 @@
   display: grid;
   width: 100%;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 30px; 
+  gap: 30px;
   justify-items: center;
+}
+
+.gothic-portal__controls {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.gothic-portal__btn {
+  background: rgba(20, 15, 15, 0.6);
+  border: 1px solid rgba(197, 179, 88, 0.3);
+  color: #c5b358;
+  font-family: 'Cinzel', serif;
+  font-size: 0.85rem;
+  padding: 8px 16px;
+  cursor: pointer;
+  letter-spacing: 2px;
+  backdrop-filter: blur(5px);
+  transition: all 0.3s ease;
+}
+
+.gothic-portal__btn:hover {
+  background: rgba(197, 179, 88, 0.1);
+  border-color: #c5b358;
+  box-shadow: 0 0 12px rgba(197, 179, 88, 0.2);
+}
+
+.gothic-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.75);
+  backdrop-filter: blur(8px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  animation: fadeInModal 0.3s ease forwards;
+}
+
+.gothic-modal {
+  background: #0a090b;
+  border: 1px solid #c5b358;
+  padding: 30px;
+  max-width: 400px;
+  width: 90%;
+  text-align: center;
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.9), inset 0 0 15px rgba(197, 179, 88, 0.1);
+  position: relative;
+}
+
+.gothic-modal__title {
+  font-family: 'Cinzel', serif;
+  color: #c5b358;
+  font-size: 1.3rem;
+  letter-spacing: 3px;
+  margin-bottom: 15px;
+}
+
+.gothic-modal__text {
+  font-family: 'Playfair Display', serif;
+  color: #8a7373;
+  font-size: 1rem;
+  line-height: 1.6;
+  margin-bottom: 25px;
+  font-style: italic;
+}
+
+.gothic-modal__close-btn {
+  background: transparent;
+  border: 1px solid rgba(138, 115, 115, 0.4);
+  color: #e5e5e5;
+  font-family: 'Cinzel', serif;
+  font-size: 0.8rem;
+  padding: 8px 20px;
+  cursor: pointer;
+  letter-spacing: 2px;
+  transition: all 0.3s ease;
+}
+
+.gothic-modal__close-btn:hover {
+  border-color: #c5b358;
+  color: #c5b358;
+  box-shadow: 0 0 8px rgba(197, 179, 88, 0.3);
+}
+
+@keyframes fadeInModal {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.gothic-portal__lang-btn {
+  background: rgba(20, 15, 15, 0.6);
+  border: 1px solid rgba(197, 179, 88, 0.3);
+  color: #c5b358;
+  font-family: "Cinzel", serif;
+  font-size: 0.85rem;
+  padding: 8px 16px;
+  cursor: pointer;
+  letter-spacing: 2px;
+  backdrop-filter: blur(5px);
+  transition: all 0.3s ease;
+  margin-bottom: 10px;
+}
+
+.gothic-portal__lang-btn:hover {
+  background: rgba(197, 179, 88, 0.1);
+  border-color: #c5b358;
+  box-shadow: 0 0 12px rgba(197, 179, 88, 0.2);
 }
 
 @media (max-width: 768px) {
