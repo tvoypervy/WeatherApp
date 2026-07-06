@@ -3,7 +3,7 @@
   justify-content: center;
   align-items: flex-start;
   min-height: 100vh;
-  padding: 60px 20px;
+  padding: clamp(24px, 4vw, 60px) 16px;
 }
 
 .gothic-portal__content {
@@ -12,7 +12,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 40px;
+  gap: clamp(24px, 4vw, 40px);
 }
 
 .gothic-portal__title {
@@ -25,16 +25,16 @@
 .gothic-portal__grid {
   display: grid;
   width: 100%;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 30px;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
+  gap: clamp(20px, 3vw, 30px);
   justify-items: center;
 }
 
 .gothic-portal__controls {
   display: flex;
   justify-content: center;
-  gap: 15px;
-  margin-bottom: 20px;
+  gap: 12px;
+  margin-bottom: 4px;
   flex-wrap: wrap;
 }
 
@@ -75,9 +75,9 @@
 .gothic-modal {
   background: #0a090b;
   border: 1px solid #c5b358;
-  padding: 30px;
-  max-width: 400px;
-  width: 90%;
+  padding: 24px 20px;
+  max-width: 420px;
+  width: min(92vw, 420px);
   text-align: center;
   box-shadow:
     0 0 30px rgba(0, 0, 0, 0.9),
@@ -88,17 +88,17 @@
 .gothic-modal__title {
   font-family: "Cinzel", serif;
   color: #c5b358;
-  font-size: 1.3rem;
-  letter-spacing: 3px;
+  font-size: clamp(1rem, 2.6vw, 1.3rem);
+  letter-spacing: 2px;
   margin-bottom: 15px;
 }
 
 .gothic-modal__text {
   font-family: "Playfair Display", serif;
   color: #8a7373;
-  font-size: 1rem;
+  font-size: 0.95rem;
   line-height: 1.6;
-  margin-bottom: 25px;
+  margin-bottom: 20px;
   font-style: italic;
 }
 
@@ -246,18 +246,75 @@
   box-shadow: 0 0 12px rgba(197, 179, 88, 0.2);
 }
 
+@media (max-width: 900px) {
+  .gothic-portal__grid {
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr));
+  }
+}
+
 @media (max-width: 768px) {
   .gothic-portal {
-    padding: 40px 15px;
+    padding: 30px 14px;
   }
 
-  .gothic-portal__title {
-    font-size: 1.5rem;
+  .gothic-portal__controls {
+    gap: 10px;
+  }
+
+  .gothic-portal__btn {
+    font-size: 0.75rem;
+    padding: 7px 12px;
+  }
+
+  .gothic-modal {
+    padding: 20px 16px;
+  }
+
+  .gothic-portal__city-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .gothic-portal__city-actions .gothic-modal__close-btn {
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .gothic-portal {
+    padding: 22px 12px;
+  }
+
+  .gothic-portal__content {
+    gap: 22px;
+  }
+
+  .gothic-portal__controls {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .gothic-portal__btn {
+    width: 100%;
+    text-align: center;
+  }
+
+  .gothic-modal {
+    width: min(94vw, 360px);
+    padding: 18px 14px;
+  }
+
+  .gothic-modal__title {
+    font-size: 0.95rem;
     letter-spacing: 1.5px;
   }
 
-  .gothic-portal__grid {
-    gap: 20px;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  .gothic-modal__text {
+    font-size: 0.9rem;
+    margin-bottom: 16px;
+  }
+
+  .gothic-portal__input {
+    padding: 9px 10px;
   }
 }

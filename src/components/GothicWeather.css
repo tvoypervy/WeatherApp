@@ -1,13 +1,13 @@
 .gothic-portal__title {
   font-family: "Cinzel", serif;
-  font-size: 2.2rem;
+  font-size: clamp(1.35rem, 4.5vw, 2.2rem);
   font-weight: 400;
   text-transform: uppercase;
-  letter-spacing: 4px;
+  letter-spacing: clamp(2px, 1.2vw, 4px);
   color: #c5b358;
   text-align: center;
 
-  padding: 15px 40px;
+  padding: clamp(12px, 2.5vw, 15px) clamp(20px, 4vw, 40px);
   border: 1px solid rgba(197, 179, 88, 0.2);
   position: relative;
   background: rgba(10, 10, 10, 0.5);
@@ -44,9 +44,10 @@
   background: rgba(10, 10, 10, 0.85);
   border: 1px solid #2a2222;
   border-radius: 2px;
-  padding: 30px;
+  padding: 24px 20px;
   width: 100%;
   max-width: 320px;
+  min-width: 0;
   box-shadow:
     0 15px 35px rgba(0, 0, 0, 0.8),
     inset 0 0 20px rgba(197, 179, 88, 0.03);
@@ -108,7 +109,7 @@
 
 .gothic-weather__temp {
   font-family: "Cinzel", serif;
-  font-size: 3.5rem;
+  font-size: clamp(2.6rem, 8vw, 3.5rem);
   font-weight: 300;
   color: #e5e5e5;
   line-height: 1;
@@ -118,7 +119,7 @@
 
 .gothic-weather__status {
   font-family: "Cinzel", serif;
-  font-size: 1.15rem;
+  font-size: clamp(1rem, 3vw, 1.15rem);
   font-weight: 600;
   color: #c5b358;
   letter-spacing: 1.5px;
@@ -128,10 +129,10 @@
 .gothic-weather__description {
   font-family: "Playfair Display", serif;
   font-style: italic;
-  font-size: 0.9rem;
+  font-size: clamp(0.8rem, 2.2vw, 0.9rem);
   color: #a39393;
   line-height: 1.4;
-  padding: 0 10px;
+  padding: 0 8px;
 }
 
 .gothic-weather__meta {
@@ -214,20 +215,62 @@
   }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 768px) {
   .gothic-weather {
-    padding: 20px 15px;
+    padding: 22px 16px;
+    max-width: 100%;
+  }
+
+  .gothic-weather__location {
+    font-size: 0.68rem;
+    letter-spacing: 2px;
+    margin-bottom: 16px;
+  }
+
+  .gothic-weather__icon {
+    font-size: 3.8rem;
+  }
+
+  .gothic-weather__meta {
+    margin-top: 18px;
+    padding-top: 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .gothic-portal__title {
+    padding: 10px 16px;
+  }
+
+  .gothic-weather {
+    padding: 18px 14px;
   }
 
   .gothic-weather__temp {
-    font-size: 2.8rem;
+    font-size: 2.6rem;
   }
 
   .gothic-weather__status {
-    font-size: 1rem;
+    font-size: 0.95rem;
   }
 
   .gothic-weather__description {
-    font-size: 0.8rem;
+    font-size: 0.78rem;
+    padding: 0;
+  }
+
+  .gothic-weather__location::before,
+  .gothic-weather__location::after {
+    display: none;
+  }
+
+  .gothic-weather__icon {
+    font-size: 3.3rem;
+    margin: 8px 0;
+  }
+
+  .gothic-weather__remove {
+    top: 8px;
+    right: 8px;
   }
 }
