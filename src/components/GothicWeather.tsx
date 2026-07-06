@@ -63,13 +63,38 @@ const gothicMoods: Record<string, GothicMoodValue> = {
     descUk: "Тіні блукають серед нас.",
     icon: <WiFog />,
   },
+  Smoke: {
+    titleEn: "Ashen Veil",
+    titleUk: "Пилюга Пепелу",
+    descEn: "The horizon is veiled in ash and forgotten sorrow.",
+    descUk: "Горизонт укрито попелом і забутою тугою.",
+    icon: <WiDust />,
+  },
+  Haze: {
+    titleEn: "Cursed Haze",
+    titleUk: "Проклята Імар",
+    descEn: "The air itself seems to whisper forbidden names.",
+    descUk: "Наче повітря шепоче заборонені імена.",
+    icon: <WiFog />,
+  },
+  Dust: {
+    titleEn: "Sand of the Lost",
+    titleUk: "Пісок Загублених",
+    descEn: "The world is being slowly buried beneath a grim desert of memory.",
+    descUk: "Світ повільно занурюється в похмурий пісок пам'яті.",
+    icon: <WiDust />,
+  },
 };
 
 interface GothicWeatherProps {
   city: string;
+  onRemove: () => void;
 }
 
-export const GothicWeather: React.FC<GothicWeatherProps> = ({ city }) => {
+export const GothicWeather: React.FC<GothicWeatherProps> = ({
+  city,
+  onRemove,
+}) => {
   const [weather, setWeather] = useState<WeatherData | null>(null);
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
@@ -114,6 +139,14 @@ export const GothicWeather: React.FC<GothicWeatherProps> = ({ city }) => {
   if (loading) {
     return (
       <div className="gothic-weather gothic-weather--loading">
+        <button
+          type="button"
+          className="gothic-weather__remove"
+          onClick={onRemove}
+          aria-label={isUk ? `Видалити ${city}` : `Remove ${city}`}
+        >
+          ×
+        </button>
         {isUk
           ? `Прикликання духів для ${city}...`
           : `Summoning spirits for ${city || "unknown"}...`}
@@ -124,6 +157,14 @@ export const GothicWeather: React.FC<GothicWeatherProps> = ({ city }) => {
   if (error || !weather) {
     return (
       <article className="gothic-weather gothic-weather--error">
+        <button
+          type="button"
+          className="gothic-weather__remove"
+          onClick={onRemove}
+          aria-label={isUk ? `Видалити ${city}` : `Remove ${city}`}
+        >
+          ×
+        </button>
         <div className="gothic-weather__location">
           {city || (isUk ? "Забута Земля" : "Forgotten Land")}
         </div>
@@ -153,6 +194,14 @@ export const GothicWeather: React.FC<GothicWeatherProps> = ({ city }) => {
 
   return (
     <article className="gothic-weather">
+      <button
+        type="button"
+        className="gothic-weather__remove"
+        onClick={onRemove}
+        aria-label={isUk ? `Видалити ${city}` : `Remove ${city}`}
+      >
+        ×
+      </button>
       <div className="gothic-weather__location">
         {weather.name} — {isUk ? "Царство" : "Realm"}
       </div>

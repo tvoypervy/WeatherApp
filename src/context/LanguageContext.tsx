@@ -1,4 +1,4 @@
-import React, { createContext, useState, useContext } from "react";
+import React, { createContext, useState, useContext, useEffect } from "react";
 
 type Language = "en" | "uk";
 
@@ -7,6 +7,8 @@ interface LanguageContextType {
   toggleLanguage: () => void;
 }
 
+const LANGUAGE_STORAGE_KEY = "gothic-weather-language";
+
 const LanguageContext = createContext<LanguageContextType | undefined>(
   undefined,
 );
@@ -14,7 +16,18 @@ const LanguageContext = createContext<LanguageContextType | undefined>(
 export const LanguageProvider: React.FC<{ children: React.ReactNode }> = ({
   children,
 }) => {
-  const [lang, setLang] = useState<Language>("en");
+  const [lang, setLang] = useState<Language>(() => {
+    if (typeof window === "undefined") {
+      return "en";
+    }
+
+    const saved = window.localStorage.getItem(LANGUAGE_STORAGE_KEY);
+    return saved === "uk" ? "uk" : "en";
+  });
+
+  useEffect(() => {
+    window.localStorage.setItem(LANGUAGE_STORAGE_KEY, lang);
+  }, [lang]);
 
   const toggleLanguage = () => {
     setLang((prev) => (prev === "en" ? "uk" : "en"));
